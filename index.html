@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idea Archives</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- manifestの読み込み -->
+<link rel="manifest" href="/Idea-Archives/manifest.json">
+<!-- iOS用の設定（PWA対応に必要） -->
+<link rel="apple-touch-icon" href="/Idea-Archives/icon-192.png">
+<meta name="theme-color" content="#000000">
+
+<script>
+  // Service Workerの登録（これでオフライン対応などが可能に）
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/Idea-Archives/sw.js')
+        .then(registration => {
+          console.log('Service Worker registered:', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
 </head>
 <body>
 
@@ -16,6 +37,22 @@
         <div class="form-container">
             <h3>新しいネタを追加</h3>
             <input type="text" id="neta-input" placeholder="ネタの内容を入力...">
+            
+            <div class="meta-options">
+                <div>
+                    <label for="status-input">ステータス:</label>
+                    <select id="status-input">
+                        <option value="idea" selected>🌱 Idea (思いつき)</option>
+                        <option value="progress">🚧 In Progress (検証中)</option>
+                        <option value="completed">✅ Completed (実現済み)</option>
+                        <option value="archived">⚰️ Archived (ボツ)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tags-input">タグ (カンマ区切り):</label>
+                    <input type="text" id="tags-input" placeholder="例: アプリ, 生活, 未検証">
+                </div>
+            </div>
             <div class="options">
                 <label for="deadline-input">期限:</label>
                 <input type="date" id="deadline-input">
@@ -28,13 +65,16 @@
 
         <div class="backup-container">
             <h3>バックアップ</h3>
-            <p>データをファイルに保存したり、ファイルから復元したりできます。</p>
             <button id="export-button" class="btn-secondary">書き出す (エクスポート)</button>
             <button id="import-button" class="btn-secondary">読み込む (インポート)</button>
             <input type="file" id="import-file" style="display: none;" accept=".json">
         </div>
+        
         <div class="list-container">
-            <h3>📝 ネタ一覧</h3>
+            <div class="list-header">
+                <h3>📝 ネタ一覧</h3>
+                <input type="text" id="search-input" placeholder="タイトルやタグで検索...">
+            </div>
             <ul id="neta-list">
                 </ul>
         </div>

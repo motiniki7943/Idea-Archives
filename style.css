@@ -35,13 +35,34 @@ h3 {
     color: #005a9c;
 }
 
-#neta-input {
+#neta-input, #tags-input {
     width: 95%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 15px;
+}
+
+/* ▼追加・変更したスタイル▼ */
+.meta-options {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.meta-options label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+#status-input, #deadline-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .options {
@@ -51,6 +72,7 @@ h3 {
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
+/* ▲ここまで▲ */
 
 .options label {
     display: flex;
@@ -69,23 +91,30 @@ h3 {
     margin-right: 10px;
 }
 
-.btn-primary {
-    background-color: #0078d4;
-    color: white;
-}
-.btn-primary:hover {
-    background-color: #005a9c;
+.btn-primary { background-color: #0078d4; color: white; }
+.btn-primary:hover { background-color: #005a9c; }
+.btn-secondary { background-color: #e1e1e1; color: #333; }
+.btn-secondary:hover { background-color: #c8c8c8; }
+
+/* ▼検索バーのスタイル▼ */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.btn-secondary {
-    background-color: #e1e1e1;
-    color: #333;
-}
-.btn-secondary:hover {
-    background-color: #c8c8c8;
+#search-input {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
 }
 
-
+/* ▼リストアイテムのスタイル変更▼ */
 #neta-list {
     list-style-type: none;
     padding: 0;
@@ -99,21 +128,57 @@ h3 {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    gap: 10px; /* 要素間の隙間 */
+    align-items: flex-start; /* 上揃えに変更 */
+    gap: 10px;
 }
 
 #neta-list li .info {
     display: flex;
-    flex-direction: column; /* 縦並びにする */
-    flex-grow: 1; /* スペースを埋める */
+    flex-direction: column;
+    flex-grow: 1;
 }
 
+#neta-list li .content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
 
 #neta-list li .content {
     font-size: 1.1rem;
     font-weight: 500;
 }
+
+/* ▼ステータスバッジのスタイル▼ */
+.status-badge {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.status-idea { background-color: #d1f7c4; color: #2a7e19; }
+.status-progress { background-color: #fff3c4; color: #8a6d00; }
+.status-completed { background-color: #c4e5f7; color: #005a9c; }
+.status-archived { background-color: #e0e0e0; color: #555; }
+
+/* ▼タグのスタイル▼ */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+.tag-item {
+    font-size: 0.8rem;
+    background-color: #f0f0f0;
+    color: #444;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+/* ▲ここまで▲ */
+
 
 #neta-list li .deadline {
     font-size: 0.9rem;
@@ -122,21 +187,11 @@ h3 {
     padding: 3px 8px;
     border-radius: 4px;
     margin-top: 5px;
-    width: fit-content; /* 中身に合わせる */
+    width: fit-content;
 }
+#neta-list li .deadline.permanent { background-color: #e0f2f1; color: #00796b; }
+#neta-list li .deadline.expired { background-color: #ffebee; color: #c62828; text-decoration: line-through; }
 
-#neta-list li .deadline.permanent {
-    background-color: #e0f2f1;
-    color: #00796b;
-}
-
-#neta-list li .deadline.expired {
-    background-color: #ffebee;
-    color: #c62828;
-    text-decoration: line-through;
-}
-
-/* ▼削除ボタンのスタイル▼ */
 .delete-btn {
     background-color: #d9534f;
     color: white;
@@ -146,8 +201,7 @@ h3 {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s;
-    flex-shrink: 0; /* 縮まないようにする */
+    flex-shrink: 0;
+    margin-top: 2px; /* 位置調整 */
 }
-.delete-btn:hover {
-    background-color: #c9302c;
-}
+.delete-btn:hover { background-color: #c9302c; }
