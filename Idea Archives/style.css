@@ -1,0 +1,153 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Yu Gothic", sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+h1 {
+    color: #444;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    display: grid;
+    gap: 30px;
+}
+
+.form-container, .list-container, .backup-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h3 {
+    margin-top: 0;
+    color: #005a9c;
+}
+
+#neta-input {
+    width: 95%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 共通ボタンスタイル */
+.btn-primary, .btn-secondary {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: #0078d4;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #005a9c;
+}
+
+.btn-secondary {
+    background-color: #e1e1e1;
+    color: #333;
+}
+.btn-secondary:hover {
+    background-color: #c8c8c8;
+}
+
+
+#neta-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#neta-list li {
+    background-color: #fdfdfd;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* 要素間の隙間 */
+}
+
+#neta-list li .info {
+    display: flex;
+    flex-direction: column; /* 縦並びにする */
+    flex-grow: 1; /* スペースを埋める */
+}
+
+
+#neta-list li .content {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+#neta-list li .deadline {
+    font-size: 0.9rem;
+    color: #666;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 5px;
+    width: fit-content; /* 中身に合わせる */
+}
+
+#neta-list li .deadline.permanent {
+    background-color: #e0f2f1;
+    color: #00796b;
+}
+
+#neta-list li .deadline.expired {
+    background-color: #ffebee;
+    color: #c62828;
+    text-decoration: line-through;
+}
+
+/* ▼削除ボタンのスタイル▼ */
+.delete-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    flex-shrink: 0; /* 縮まないようにする */
+}
+.delete-btn:hover {
+    background-color: #c9302c;
+}
