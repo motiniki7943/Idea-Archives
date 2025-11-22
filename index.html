@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Archives</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>💡 Idea Archives</h1>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h3>新しいネタを追加</h3>
+            <input type="text" id="neta-input" placeholder="ネタの内容を入力...">
+            <div class="options">
+                <label for="deadline-input">期限:</label>
+                <input type="date" id="deadline-input">
+                <label>
+                    <input type="checkbox" id="permanent-check"> 無期限にする
+                </label>
+            </div>
+            <button id="add-button" class="btn-primary">追加する</button>
+        </div>
+
+        <div class="backup-container">
+            <h3>バックアップ</h3>
+            <p>データをファイルに保存したり、ファイルから復元したりできます。</p>
+            <button id="export-button" class="btn-secondary">書き出す (エクスポート)</button>
+            <button id="import-button" class="btn-secondary">読み込む (インポート)</button>
+            <input type="file" id="import-file" style="display: none;" accept=".json">
+        </div>
+        <div class="list-container">
+            <h3>📝 ネタ一覧</h3>
+            <ul id="neta-list">
+                </ul>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
